@@ -22,7 +22,7 @@ const handlePreloaderBanner = function () {
 
 	localStorage.setItem('prevRandNum', randNum);
 
-	const randImgPath = `./assets/preloader/banner-${randNum}.jpg`;
+	const randImgPath = `preloader/banner-${randNum}.jpg`;
 	const img = document.createElement('img');
 	img.src = randImgPath;
 
