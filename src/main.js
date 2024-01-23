@@ -22,13 +22,9 @@ const handlePreloaderBanner = function () {
 
 	localStorage.setItem('prevRandNum', randNum);
 
-	const randImgPath = `preloader/banner-${randNum}.jpg`;
-	const img = document.createElement('img');
-	img.src = randImgPath;
-
-	img.addEventListener('load', () => {
-		preloaderBanner.style.backgroundImage = `url(${randImgPath})`;
-	});
+	const img = document.querySelector(`.banner-${randNum}`);
+	preloaderBanner.style.backgroundImage = `url(${img.src})`;
+	// const randImgPath = `preloader/banner-${randNum}.jpg`;
 
 	const handleMouseClickAndScroll = () => {
 		preloader.classList.add('transparent');
@@ -53,8 +49,8 @@ const handleParallax = () => {
 	const handleMouseMove = e => {
 		cursor.x = (e.clientX / window.innerWidth) * -20;
 		cursor.y = (e.clientY / window.innerHeight) * -20;
-		preloaderBanner.style.left = `${cursor.x}px`;
-		preloaderBanner.style.top = `${cursor.y}px`;
+		preloaderBanner.style.left = `${(cursor.x / 20) * 65}px`;
+		preloaderBanner.style.top = `${(cursor.y / 20) * 65}px`;
 		imgContainer.style.transform = `translate(${cursor.x}px, ${cursor.y}px)`;
 		bigText.style.translate = `${cursor.x * -1}px ${cursor.y * -1}px`;
 
