@@ -1,0 +1,10 @@
+@font-face {
+	font-family: 'Fabrikat Mono';
+	src: url('../fonts/regular.otf');
+	font-weight: 400;
+}
+@font-face {
+	font-family: 'Fabrikat Mono';
+	src: url('../fonts/bold.otf');
+	font-weight: 700;
+}

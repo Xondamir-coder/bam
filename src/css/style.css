@@ -1,0 +1,276 @@
+@import url('./font.css');
+
+/* Global Elements */
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	font-family: 'Fabrikat Mono', sans-serif;
+	color: #ff0000;
+}
+a {
+	text-decoration: none;
+	color: currentColor;
+}
+a:hover {
+	font-weight: bold;
+}
+
+/* Preloader */
+.preloader {
+	cursor: pointer;
+	position: absolute;
+	height: 100vh;
+	width: 98vw;
+	display: grid;
+	place-items: center;
+	transition: opacity 0.3s, transform 0.3s;
+	z-index: 4;
+}
+.preloader__banner {
+	height: 110%;
+	width: 110%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.preloader__content {
+	width: 40vw;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	z-index: 2;
+}
+.preloader__title {
+	font-size: 20vw;
+	font-weight: 700;
+	letter-spacing: 2vw;
+	white-space: nowrap;
+}
+.preloader__title:hover ~ .preloader__text {
+	opacity: 1;
+}
+.preloader__text {
+	opacity: 0;
+	font-size: 1.5vw;
+	letter-spacing: initial;
+	margin-top: -4.5vw;
+}
+
+/* Navbar & Header */
+.header {
+	position: fixed;
+	background-color: #fff;
+	z-index: 3;
+	width: 100vw;
+}
+.navbar {
+	margin: 0 auto;
+	max-width: 1200px;
+	padding: 20px;
+}
+.navbar ul {
+	display: flex;
+	justify-content: space-between;
+	list-style: none;
+}
+.navbar__title {
+	letter-spacing: 0.2rem;
+}
+
+/* Main */
+.main {
+	position: relative;
+	padding-top: 60px;
+}
+
+/* Left */
+.main__left {
+	position: fixed;
+	width: 20vw;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	z-index: 2;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 100px;
+}
+.main__left__content {
+	display: flex;
+	align-items: flex-end;
+	flex-direction: column;
+	justify-content: space-evenly;
+	gap: 150px;
+	padding-left: 20px;
+	padding-top: 90px;
+}
+.main__left__link {
+	transform: rotate(-90deg) translateY(200%);
+	transform-origin: left bottom;
+}
+.main__left__img {
+	width: 50px;
+	height: 60px;
+	margin-right: 90px;
+}
+
+/* Right */
+.main__right {
+	position: fixed;
+	width: 17vw;
+	top: 0;
+	left: 81%;
+	z-index: 2;
+}
+.main__right__content {
+	margin-top: 65%;
+	line-height: 1.3;
+	display: flex;
+	flex-direction: column;
+}
+.main__right__link {
+	text-decoration: underline;
+}
+.main__right__hashtag {
+	align-self: flex-end;
+	margin-right: 35px;
+}
+
+/* Center */
+.main__center {
+	display: grid;
+	grid-template-columns: repeat(30, 1fr);
+}
+.main__center img {
+	width: 100%;
+}
+.grid-5-27 {
+	grid-column: 5 / 27;
+}
+.grid-4-28 {
+	grid-column: 4 / 28;
+}
+.grid__box--1 {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+}
+.grid__box--1 img:first-child {
+	margin-left: 7%;
+	width: 32%;
+}
+.grid__box--1 img:last-child {
+	width: 40%;
+}
+.grid__box--2 {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+}
+.grid__box--2 img:first-child {
+	width: 65%;
+}
+.grid__box--2 img:last-child {
+	width: 30%;
+}
+.grid__box--3 {
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+}
+.grid__box--3 img:first-child {
+	width: 35%;
+}
+.grid__box--3 img:last-child {
+	width: 38%;
+}
+.grid__box--4 {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+}
+.grid__box--4 img:first-child {
+	width: 65%;
+}
+.grid__box--4 img:last-child {
+	width: 30%;
+}
+.grid__box--5 {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	gap: 80px;
+	margin-right: 40px;
+}
+.grid__box--5 img:first-child {
+	width: 13%;
+}
+.grid__box--5 img:last-child {
+	width: 55%;
+}
+.grid__box--6 {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+}
+.grid__box--6 video {
+	margin-left: 30px;
+	width: 33%;
+}
+.grid__box--6 img {
+	width: 50%;
+}
+.grid__box--7 {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+}
+.grid__box--7 img:first-child {
+	width: 70%;
+}
+.grid__box--7 img:last-child {
+	width: 25%;
+}
+.grid__box--8 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.grid__box--8 img:first-child {
+	width: 40%;
+}
+.grid__box--8 img:last-child {
+	width: 40%;
+}
+.grid__box--9 {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	gap: 100px;
+}
+.grid__box--9 img:first-child {
+	width: 15%;
+}
+.grid__box--9 img:last-child {
+	width: 60%;
+}
+
+/* Helper Classes */
+.transparent {
+	opacity: 0;
+}
+.big {
+	transform: scale(1.2);
+}
+.hidden {
+	display: none;
+}
