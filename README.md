@@ -1,1 +1,1 @@
-#BAM profile page
+<h1>BAM Profile Page</h1>
