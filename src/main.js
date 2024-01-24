@@ -22,9 +22,8 @@ const handlePreloaderBanner = function () {
 
 	localStorage.setItem('prevRandNum', randNum);
 
-	const img = document.querySelector(`.banner-${randNum}`);
-	preloaderBanner.style.backgroundImage = `url(${img.src})`;
-	// const randImgPath = `preloader/banner-${randNum}.jpg`;
+	const randImgPath = `preloader/banner-${randNum}.jpg`;
+	preloaderBanner.style.backgroundImage = `url(${randImgPath})`;
 
 	const handleMouseClickAndScroll = () => {
 		preloader.classList.add('transparent');
@@ -58,9 +57,7 @@ const handleParallax = () => {
 		 * Change big text
 		 */
 		const text = e.target?.parentElement?.dataset.text;
-		if (text) {
-			bigText.textContent = text;
-		}
+		text ? (bigText.textContent = text) : (bigText.textContent = '');
 	};
 
 	window.addEventListener('mousemove', handleMouseMove);
