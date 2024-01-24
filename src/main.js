@@ -1,6 +1,7 @@
 import './css/style.css';
 
 const preloaderBanner = document.querySelector('.preloader__banner');
+const imgContainer = document.querySelector('.main__center');
 
 const handlePreloaderBanner = function () {
 	/**
@@ -40,7 +41,6 @@ const handlePreloaderBanner = function () {
 	window.addEventListener('scroll', handleMouseClickAndScroll);
 };
 const handleParallax = () => {
-	const imgContainer = document.querySelector('.main__center');
 	const bigText = document.querySelector('.main__link');
 
 	const cursor = { x: 0, y: 0 };
@@ -62,5 +62,22 @@ const handleParallax = () => {
 
 	window.addEventListener('mousemove', handleMouseMove);
 };
+const handleImgLoading = () => {
+	const handleObserver = (entries, observer) => {
+		entries.forEach(entry => {
+			if (entry.isIntersecting) {
+				const image = entry.target;
+				image.src = image.dataset.src;
+				observer.unobserve(image);
+			}
+		});
+	};
+	const imagesToLoad = imgContainer.querySelectorAll('img');
+	const observer = new IntersectionObserver(handleObserver);
+	imagesToLoad.forEach((img, i) => {
+		observer.observe(img);
+	});
+};
 handlePreloaderBanner();
 handleParallax();
+handleImgLoading();
