@@ -1,22 +1,21 @@
 import './css/style.css';
 
+// Global elements
 const preloaderBanner = document.querySelector('.preloader__banner');
 const imgContainer = document.querySelector('.main__center');
 
 const handlePreloaderBanner = function () {
-	/**
-	 * Elements
-	 */
+	// Elements
 	const preloader = document.querySelector('.preloader');
+	const hands = document.querySelector('.main__right__hands');
 
-	/**
-	 * Every time banner changes
-	 */
+	// Banner changes everytime
 	const generateRandNum = n => Math.floor(Math.random() * n);
 	const numberOfBanners = 8;
 	const prevRandNum = localStorage.getItem('prevRandNum');
 	let randNum = generateRandNum(numberOfBanners);
 
+	// To avoid having same banner twice in a row
 	while (randNum == prevRandNum) {
 		randNum = generateRandNum(numberOfBanners);
 	}
@@ -35,17 +34,22 @@ const handlePreloaderBanner = function () {
 	});
 	img.src = originalPath;
 
-	// preloaderBanner.style.backgroundImage = `url(${randImgPath})`;
-
 	const handleMouseClickAndScroll = () => {
 		preloader.classList.add('transparent');
 		preloader.classList.add('big');
 		setTimeout(() => {
-			document.body.classList.remove('no-overflow');
 			preloader.classList.add('hidden');
+
+			// Remove event listeners for performance's sake
 			preloader.removeEventListener('click', handleMouseClickAndScroll);
 			window.removeEventListener('scroll', handleMouseClickAndScroll);
 		}, 500);
+
+		// 🤘 -> appears on screen after some time
+		setTimeout(() => {
+			hands.classList.remove('transparent');
+			hands.style.transform = 'translateX(0)';
+		}, 5000);
 	};
 
 	preloader.addEventListener('click', handleMouseClickAndScroll);
@@ -64,10 +68,8 @@ const handleParallax = () => {
 		imgContainer.style.transform = `translate(${cursor.x}px, ${cursor.y}px)`;
 		bigText.style.translate = `${cursor.x * -1}px ${cursor.y * -1}px`;
 
-		/**
-		 * Change big text
-		 */
-		const text = e.target?.parentElement?.dataset.text;
+		// Change big text
+		const { text } = e.target?.parentElement?.dataset;
 		text ? (bigText.textContent = text) : (bigText.textContent = '');
 	};
 
@@ -86,9 +88,9 @@ const handleImgLoading = () => {
 			}
 		});
 	};
-	const imagesToLoad = imgContainer.querySelectorAll('img');
 	const observer = new IntersectionObserver(handleObserver);
-	imagesToLoad.forEach((img, i) => {
+	const imagesToLoad = imgContainer.querySelectorAll('img');
+	imagesToLoad.forEach(img => {
 		img.classList.add('lazy-img');
 		observer.observe(img);
 	});

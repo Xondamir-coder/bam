@@ -173,6 +173,16 @@ video {
 	align-self: flex-end;
 	margin-right: 35px;
 }
+.main__right__hands {
+	height: 60px;
+	width: 60px;
+	align-self: flex-end;
+	transition: all 1s linear;
+}
+.main__right__hands img {
+	height: 100%;
+	width: 100%;
+}
 
 /* Center */
 .main__center {
