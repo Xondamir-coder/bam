@@ -68,6 +68,9 @@ const handleImgLoading = () => {
 			if (entry.isIntersecting) {
 				const image = entry.target;
 				image.src = image.dataset.src;
+				image.addEventListener('load', () => {
+					image.classList.remove('lazy-img');
+				});
 				observer.unobserve(image);
 			}
 		});
@@ -75,6 +78,7 @@ const handleImgLoading = () => {
 	const imagesToLoad = imgContainer.querySelectorAll('img');
 	const observer = new IntersectionObserver(handleObserver);
 	imagesToLoad.forEach((img, i) => {
+		img.classList.add('lazy-img');
 		observer.observe(img);
 	});
 };

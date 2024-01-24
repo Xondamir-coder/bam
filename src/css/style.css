@@ -182,6 +182,7 @@ video {
 }
 .main__center img {
 	width: 100%;
+	transition: filter 1s;
 }
 .main__thanks {
 	display: block;
@@ -191,6 +192,9 @@ video {
 }
 
 /* Helper Classes */
+.lazy-img {
+	filter: blur(15px);
+}
 .transparent {
 	opacity: 0;
 }
