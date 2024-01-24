@@ -24,7 +24,7 @@ const handlePreloaderBanner = function () {
 	localStorage.setItem('prevRandNum', randNum);
 
 	const originalPath = `preloader/banner-${randNum}.jpg`;
-	const blurredPath = `./assets/blurred/banner-${randNum}.jpg`;
+	const blurredPath = `blurred/banner-${randNum}.jpg`;
 	preloaderBanner.style.backgroundImage = `url(${blurredPath})`;
 
 	const img = new Image();
