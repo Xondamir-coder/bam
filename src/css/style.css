@@ -50,6 +50,7 @@ video {
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
+	transition: background-image 1s;
 }
 .preloader__content {
 	width: 40vw;

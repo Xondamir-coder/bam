@@ -23,8 +23,19 @@ const handlePreloaderBanner = function () {
 
 	localStorage.setItem('prevRandNum', randNum);
 
-	const randImgPath = `preloader/banner-${randNum}.jpg`;
-	preloaderBanner.style.backgroundImage = `url(${randImgPath})`;
+	const originalPath = `preloader/banner-${randNum}.jpg`;
+	const blurredPath = `./assets/blurred/banner-${randNum}.jpg`;
+	preloaderBanner.style.backgroundImage = `url(${blurredPath})`;
+
+	const img = new Image();
+	img.addEventListener('load', () => {
+		preloaderBanner.style.backgroundImage = `url(${img.src})`;
+		preloaderBanner.style.transition = 'filter 1s, background-image 1s';
+		preloaderBanner.classList.remove('lazy-img');
+	});
+	img.src = originalPath;
+
+	// preloaderBanner.style.backgroundImage = `url(${randImgPath})`;
 
 	const handleMouseClickAndScroll = () => {
 		preloader.classList.add('transparent');
