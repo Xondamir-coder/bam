@@ -29,7 +29,7 @@ const handlePreloaderBanner = function () {
 	const img = new Image();
 	img.addEventListener('load', () => {
 		preloaderBanner.style.backgroundImage = `url(${img.src})`;
-		preloaderBanner.style.transition = 'filter 1s, background-image 1s';
+		preloaderBanner.style.transition = 'filter .5s, background-image .5s';
 		preloaderBanner.classList.remove('lazy-img');
 	});
 	img.src = originalPath;

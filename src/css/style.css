@@ -193,7 +193,7 @@ video {
 }
 .main__center img {
 	width: 100%;
-	transition: filter 1s;
+	transition: filter 0.5s;
 }
 .main__thanks {
 	display: block;
